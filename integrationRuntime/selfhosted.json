@@ -1,9 +1,0 @@
-{
-	"name": "selfhosted",
-	"properties": {
-		"type": "SelfHosted",
-		"typeProperties": {
-			"selfContainedInteractiveAuthoringEnabled": true
-		}
-	}
-}
