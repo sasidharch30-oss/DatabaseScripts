@@ -1,0 +1,25 @@
+{
+	"name": "AzureSSIS",
+	"properties": {
+		"type": "Managed",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "West US 2",
+				"nodeSize": "Standard_D8_v3",
+				"numberOfNodes": 2,
+				"maxParallelExecutionsPerNode": 8,
+				"vNetProperties": {
+					"subnetId": "/subscriptions/cd2b4a84-90c9-48f0-b587-b79e691ef804/resourceGroups/USEDEVRES/providers/Microsoft.Network/virtualNetworks/vnet-free-sql-mi-0854014/subnets/AzureSSISSubnet"
+				}
+			},
+			"ssisProperties": {
+				"catalogInfo": {
+					"catalogServerEndpoint": "free-sql-mi-0854014.1a04ba1f8b90.database.windows.net",
+					"catalogPricingTier": null
+				},
+				"edition": "Standard",
+				"licenseType": "LicenseIncluded"
+			}
+		}
+	}
+}
