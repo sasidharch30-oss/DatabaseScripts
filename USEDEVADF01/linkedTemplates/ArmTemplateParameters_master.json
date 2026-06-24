@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "USEDEVADF01"
 		},
+		"Dev_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"value": "free-sql-mi-0854014.1a04ba1f8b90.database.windows.net"
+		},
 		"containerUri": {
 			"value": ""
 		},

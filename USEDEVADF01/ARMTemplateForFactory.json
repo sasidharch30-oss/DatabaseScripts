@@ -6,6 +6,10 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "USEDEVADF01"
+		},
+		"Dev_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"type": "string",
+			"defaultValue": "free-sql-mi-0854014.1a04ba1f8b90.database.windows.net"
 		}
 	},
 	"variables": {
@@ -32,6 +36,45 @@
 					"elapsedTimeMetric": {}
 				},
 				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Dev')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "Managed",
+				"typeProperties": {
+					"computeProperties": {
+						"location": "West US 2",
+						"nodeSize": "Standard_D8_v3",
+						"numberOfNodes": 2,
+						"maxParallelExecutionsPerNode": 8,
+						"vNetProperties": {
+							"subnetId": "/subscriptions/cd2b4a84-90c9-48f0-b587-b79e691ef804/resourceGroups/USEDEVRES/providers/Microsoft.Network/virtualNetworks/vnet-free-sql-mi-0854014/subnets/AzureSSISSubnet"
+						}
+					},
+					"ssisProperties": {
+						"catalogInfo": {
+							"catalogServerEndpoint": "[parameters('Dev_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]",
+							"catalogPricingTier": null
+						},
+						"edition": "Standard",
+						"runtimeVersion": "2017",
+						"licenseType": "LicenseIncluded"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
 			},
 			"dependsOn": []
 		}
